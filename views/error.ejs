@@ -1,0 +1,9 @@
+<% layout("/layout/boilerplate") %>
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">ERROR</h4>
+        <p>there is some error we are facing plz visit homepage for moree info</p>
+        <hr>
+        <p class="mb-0">
+            <%= err.stack %>
+        </p>
+    </div>

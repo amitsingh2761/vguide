@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="map" style="width: 100%;"></div>
+    <img class="image" src="" alt="">
+
+
+
+    <script>
+
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 6,
+            })
+
+            infoWindow = new google.maps.InfoWindow();
+
+            if (navigator.geolocation) { //check if geolocation is available
+                navigator.geolocation.getCurrentPosition(function (position) {
+
+                    let latlongvalue = `${position.coords.latitude},${position.coords.longitude}`;
+                    console.log(latlongvalue)
+                    var img = new Image();
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent("Location found.");
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                    window.initMap = initMap;
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

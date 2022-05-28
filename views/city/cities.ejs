@@ -1,0 +1,19 @@
+<% layout("./layout/boilerplate") %>
+
+
+<% for(let item of city) { %>
+    <div class=" d-flex ">
+        <a href="/city/<%= item._id%>"> 
+<div class="card text-white col-7 mb-3 mt-2 shadow mx-auto  flex-col "><button style="background-color: transparent; border:none;">
+  <img src="<%= item.image%>" class="img-fluid card-img" alt="<%= item.name %>"></div>
+   </button></a>
+  </div>
+  <% }%>   
+
+
+
+
+
+
+    
+  

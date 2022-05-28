@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script type="text/javascript">
+
+        function showLocation(position) {
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            let latlongvalue = position.coords.latitude + ","
+                + position.coords.longitude;
+    </script>
+
+    <script>
+        }
+        function errorHandler(err) {
+            if (err.code == 1) {
+                alert("Error: Access is denied!");
+            } else if (err.code == 2) {
+                alert("Error: Position is unavailable!");
+            }
+        }
+        function getLocation() {
+            if (navigator.geolocation) {
+                // timeout at 60000 milliseconds (60 seconds)
+                var options = { timeout: 60000 };
+                navigator.geolocation.getCurrentPosition
+                    (showLocation, errorHandler, options);
+                console.log("current location:")
+            } else {
+                alert("Sorry, browser does not support geolocation!");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="mapholder"></div>
+    <form>
+        <input type="button" onclick="getLocation();" value="Get Location" />
+    </form>
+</body>
+
+</html>

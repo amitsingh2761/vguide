@@ -1,0 +1,89 @@
+<% layout("./layout/boilerplate") %>
+   <link rel="stylesheet" href="/stylesheets/hotel.css">
+   <script src="/javascript/hotel.js"></script>
+    
+        <div class="display-2 w-100 text-center" style="margin:0 auto;"> <%= city.name%>
+        </div>
+        <div class="display-4"> <%= city.location %>
+        </div>
+       <% if (currentUser.id==admin) { %>
+        
+     
+        <form action="/city/<%=city._id%>/delete?_method=DELETE" method="POST">
+            <button class="btn btn-danger  mb-3"> DELETE
+            </button>
+        </form>  <% } %>
+    </ul>
+    <h2 class="display-4">places</h2>
+    <ul>
+        <% for(let place of city.places) {%>
+
+            <div class="container  d-flex flex-sm-row ">
+                <div class="card  shadow p-3 mb-5 bg-white rounded" style="width: 10rem;">
+                    <img src="<%= place.images[0].url %> " class="card-img-top  img-thumbnail" alt="image"
+                        style="width:100%">
+                    <div class="card-body " style="width: 10rem;">
+                        <h5 class=" card-title">
+                            <%=place.title%>
+                        </h5>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p> -->
+                        <a href="/place/<%=place._id%>" class="btn btn-primary">explore</a>
+
+                    </div>
+                </div>
+                <% } %>
+
+
+            </div>
+
+
+    </ul>
+ 
+
+   
+    <div class="button-group ">
+        <button><a href="/city/<%= city._id%>/place/new">Add place</a>   <% if (currentUser.id==admin) { %>
+            <a href="/city/<%= city._id%>/hotel/new">Add hotel</a>
+            <% } %> 
+            
+    </div>
+
+    <h2 class="text-capitalize text-center text-info" width="100%">hotels</h2>
+
+    <!-- hotels -->
+    
+
+
+
+
+    
+<div id="myBtnContainer">
+  <button class="hbtn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="hbtn" onclick="filterSelection('bussiness')"> bussiness</button>
+  <button class="hbtn" onclick="filterSelection('midrange')"> midrange</button>
+  <button class="hbtn" onclick="filterSelection('longstay')"> longstay</button>
+</div>
+
+<!-- hotel Gallery Grid -->
+<div class="row">
+    <% for( let item of city.hotels) { %>
+  
+   
+  <div class="column <%= item.category%>">
+    <div class="content">
+      <img src="<%= item.image%>" alt="<%= item.name%>" style="width:100%">
+      <h4><%= item.title%></h4>
+
+      <p><strong>starting from &#8377; </strong><%= item.price%>/day</p>
+      <p><%= item.description%></p>
+      <div btn btn-primary><a href="<%= item.contact%>">book now</a></div>
+      <form action="/city/<%= item._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-danger  mb-3"> DELETE
+        </button>
+    </form>
+    </div>
+  </div>
+  <% } %>
+<!-- END GRID -->
+</div>

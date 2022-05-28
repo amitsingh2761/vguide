@@ -1,0 +1,53 @@
+<% layout("/layout/boilerplate") %>
+    <% layout("/layout/boilerplate") %>
+
+
+
+        <h1>
+            <%= city.name %>
+        </h1>
+        <h2>add place</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+        <form action="/city/<%=city._id%>/places" method="POST" class="validated-form" novalidate>
+            <div class="form-group">
+                <label for="title"> title:
+                </label><input type="text" class="form-control" id="title" name="PLACE[title]" required />
+                <div class="valid-feedback">looks good</div>
+                <!-- <label for="location"> location
+                </label><input type="text" id="location" class="form-control" name="PLACE[location]"
+                    value="//will be :city" />
+                <div class="valid-feedback">looks good</div> -->
+
+
+                <label for="description"> description
+
+                </label>
+                <textarea class="form-control" name="PLACE[description]" id="description" cols="30" rows="10"
+                    required></textarea>
+                <div class="valid-feedback">looks good</div>
+
+
+                <label for="price">price
+                </label><input type="number" id="price" class="form-control" name="PLACE[price]" required />
+                <div class="valid-feedback">looks good</div>
+
+                <label for="image">image
+                </label><input type="url" id="image" class="form-control" name="PLACE[image]" required />
+                <div class="valid-feedback">looks good</div>
+
+                <button type="submit" class="btn btn-primary form-control">submit
+                </button>
+                <h4><a href="http://localhost:3000/city/<%= city._id %> "> cancel</a></h4>
+            </div>
+        </form>

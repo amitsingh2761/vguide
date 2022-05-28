@@ -1,0 +1,31 @@
+<% layout("/layout/boilerplate") %>
+  
+    <div class="alert alert-primary" role="alert">
+<a href="/userdata" class="btn btn-primary" >lets get started</a> complete your profile for good experience
+</div>
+    <div class="container">
+        <h1>all places</h1>
+        <a href="http://localhost:3000/place/add">add places</a>
+        <% for( let items of place ) { %>
+
+            <div class="card " style="width: 50rem; height: max-content;">
+                <div class="row max-width:100%">
+                    <img src="<%= items.images[0].url%> " class="card-img" style="width: 18rem;height: max-content;"
+                        alt="...">
+                    <div class="col-6">
+                        <h3 class="col card-title">
+                            <%= items.title %>
+                        </h3>
+                        <p class=" card-text">
+                            <%= items.description %>
+
+                        </p>
+                        <p> <a class="btn btn-primary" href="http://localhost:3000/place/<%= items._id%> ">view
+                                place</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+    </div>
+    <!-- <script src="/hello.js"></script>  in public directory-->

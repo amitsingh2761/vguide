@@ -1,0 +1,126 @@
+
+<% layout("./layout/boilerplate") %>
+<!-- importing socialmedia buttons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="/stylesheets/multiform.css">
+<!-- <div class="card col-6 d-flex mx-auto p-4 mt-2">
+    <form action="/user" method="POST" class="form-group" validate> 
+     <label for="profession"></label>
+        <select class="form-control" id="profession" name="profession" required>
+    
+        </select>
+        <div>
+            <label for="location">location</label>
+            <input type="text" name="location" id="location" placeholder="city location" class="form-control mb-3" required> 
+        </div>
+
+
+        <button type="submit">Submit</button>
+    </form></div>  -->
+
+
+<style></style>
+
+
+
+    <div class="card col-6 d-flex mx-auto p-4 mt-2 container">
+        <form action="/user" method="POST" class="form-group" id="regForm"  validate> 
+
+        <h1>user bio:</h1>
+        
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">
+           <div> <label for="profession"></label>
+            <select class="form-control" id="profession" name="profession" oninput="this.className = ''" required>
+                <% for(let i=0;i<profession.length;i++ ) { %>
+                    <option value="<%= profession[i] %>">
+                        <%= profession[i] %>
+                    </option>
+                    <% } %>
+            </select></div>
+            <div>
+                <label for="bio">bio</label><br>
+                <textarea name="bio" id="bio"  rows="5" wrap="soft" oninput="this.className = ''"></textarea>
+            </div>
+        </div>
+        
+        <div class="tab">social media accounts
+         <div> 
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-none fa fa-facebook" id="basic-addon1"><b>facebook</b></span>
+         
+          <input type="text" class="form-control" placeholder="facebookID/number" name="facebook"  oninput="this.className = ''"></div>
+        </div> 
+         <div>
+          <div class="input-group-prepend">
+            <span class="input-group-text fa fa-twitter" id="basic-addon1"><b>twitter</b> </span>
+         
+          <input type="text" class="form-control" placeholder="twitterID/number" name="twitter"  oninput="this.className = ''"></div>
+        </div> 
+         <div> 
+          <div class="input-group-prepend">
+            <span class="input-group-text fa fa-instagram" id="basic-addon1"><b>instagram</b></span>
+         
+          <input type="text" class="form-control" placeholder="InstagramID/number" name="instagram"  oninput="this.className = ''"></div>
+        </div> </div>
+       
+        
+        <div class="tab">personal info
+         <div> 
+            <div> 
+                <div class="input-group-prepend">
+                  <span class="input-group-text fa fa-birthday-cake" id="basic-addon1"><b>DOB</b></span>
+               
+                <input type="date" class="form-control" placeholder="date of birth" name="age"  oninput="this.className = ''"></div>
+              </div>
+        </div> 
+         <div> 
+            <div> 
+                <div class="input-group-prepend">
+                  <span class="input-group-text fa fa-map-marker" id="basic-addon1"><b>City</b></span>
+               
+                <input type="text" class="form-control" placeholder="residental city" name="location"  oninput="this.className = ''"></div>
+              </div>
+        </div> 
+    
+    </div>
+    
+    <!-- https://i.pravatar.cc/150?img=3    total 70-->
+        <div class="tab ">
+    
+       
+        <div >
+ <% for( let i = 1; i <= 70; i++ ) { %>
+ 
+  
+
+                <img src="https://i.pravatar.cc/150?img=<%= i%>" alt="image" class="img-thumbnail">
+                <div class="form-check-inline">
+                    <input type="radio" id="avatar" name="avatar" value="https://i.pravatar.cc/150?img=<%= i%>">
+                </div>
+           
+                <%}%>
+               
+        </div>
+        </div>
+        
+        <div style="overflow:auto;">
+          <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          </div>
+        </div>
+        
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+        
+        </form>
+
+
+   <script src="/javascript/multiform.js"></script>
+      

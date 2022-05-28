@@ -1,0 +1,21 @@
+<% layout("./layout/boilerplate") %>
+   
+    <div class="card col-6 d-flex mx-auto p-4 mt-2">
+    <form action="/city" method="POST" class="form-group" validate> 
+        <div class="display-4 mb-3">add city</div>
+        <div>
+            <label for="name">City Name</label>
+            <input type="text" name="name" id="name" placeholder="city name"  class="form-control mb-3" required>
+        </div>
+        <div>
+            <label for="location">location</label>
+            <input type="text" name="location" id="location" placeholder="city location" class="form-control mb-3" required> 
+        </div>
+        <div>
+            <label for="image">image</label>
+            <input type="text" name="image" id="image" placeholder="city image url" class="form-control mb-3" required> 
+        </div>
+
+
+        <button type="submit">Submit</button>
+    </form></div> 

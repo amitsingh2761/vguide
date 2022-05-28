@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>Marker Clustering</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="./map.css" />
+    <script type="module" src="./clustermap.ts"></script>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcT2L9JZsYRXdLWz1CbABid-Pt3NDgk5E&callback=initMap&v=weekly"
+        defer></script>
+</body>
+
+</html>
